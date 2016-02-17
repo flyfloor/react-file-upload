@@ -1,3 +1,3 @@
-### React file upload
+## React boilerplate
 
-file uploader use ReactJs
+this is a boilerplate for React project 

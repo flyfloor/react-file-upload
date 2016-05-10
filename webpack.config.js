@@ -1,10 +1,12 @@
 var path = require('path');
 var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var precss = require('precss');
+var autoprefixer = require('autoprefixer');
 
 module.exports = {
 
-    entry: "./src/app.js",
+    entry: "./demo/demo.js",
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'app.js',
@@ -32,7 +34,10 @@ module.exports = {
                 exclude: /(node_modules|bower_components)/,
                 loader: "babel" 
             }
-        ]
+        ],
+        postcss: function () {
+            return [autoprefixer, precss];
+        }
     },
     
 };

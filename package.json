@@ -1,17 +1,21 @@
 {
   "name": "react-file-upload",
-  "version": "0.0.1",
-  "description": "react file uploader",
+  "version": "0.0.3",
+  "description": "react file upload",
   "main": "app.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "babel --presets es2015,react --watch component/ --out-dir lib/ & node server.js",
+    "build:demo": "webpack -p",
+    "lint": "eslint lib"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com"
+    "url": "https://github.com/jerryshew/react-file-upload"
   },
   "keywords": [
-    "boilerplate"
+    "react",
+    "file upload",
+    "react component"
   ],
   "author": "jerryshew",
   "license": "MIT",
@@ -22,24 +26,24 @@
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",
-    "autoprefixer-loader": "^3.1.0",
-    "babel-plugin-react-transform": "^1.1.0",
     "babel-core": "^5.8.23",
-    "babel-loader": "^5.3.2",
+    "babel-loader": "^5.3.4",
+    "babel-plugin-react-transform": "^1.1.0",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
     "babel-runtime": "^5.8.20",
-    "jsx-loader": "^0.13.2",
     "css-loader": "^0.17.0",
     "express": "^4.13.3",
+    "html-webpack-plugin": "^1.7.0",
+    "jsx-loader": "^0.13.2",
     "less": "^2.5.1",
+    "less-loader": "^2.2.0",
+    "precss": "^1.4.0",
     "react-hot-loader": "^1.3.0",
     "react-transform-hmr": "^1.0.0",
-    "less-loader": "^2.2.0",
     "style-loader": "^0.12.3",
-    "webpack-dev-middleware": "^1.2.0",
-    "webpack-hot-middleware": "^2.5.0",
-    "html-webpack-plugin": "^1.7.0",
     "webpack": "^1.12.11",
-    "html-webpack-plugin": "^1.7.0",
-    "webpack": "^1.12.11"
+    "webpack-dev-middleware": "^1.2.0",
+    "webpack-hot-middleware": "^2.5.0"
   }
 }

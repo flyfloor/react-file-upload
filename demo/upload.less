@@ -1,0 +1,184 @@
+* {
+    box-sizing: border-box;
+}
+.uploader {
+    @_name_space: .uploader;
+    @{_name_space}-label {
+        position: relative;
+        margin-bottom: 10px;
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: #eee;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        font-size: 14px;
+        color: #383838;
+        cursor: pointer;
+    }
+    @{_name_space}-input {
+        visibility: hidden;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+    }
+
+    @{_name_space}-progress {
+        height: 5px;
+        border-radius: 5px;
+        overflow: hidden;
+        position: relative;
+        display: block;
+        &-bar {
+            width: 0;
+            max-width: 100%;
+            position: absolute;
+            line-height: 100%;
+            left: 0;
+            top: 0;
+            height: 5px;
+            border-radius: inherit;
+            background-color: #42A5F5;
+            /* Safari 4-5, Chrome 1-9 */
+            background-color: -webkit-gradient(linear, left top, right top, from(#42A5F5), to(#9ED4FF));
+            /* Safari 5.1, Chrome 10+ */
+            background-color: -webkit-linear-gradient(left, #9ED4FF, #42A5F5);
+            /* Firefox 3.6+ */
+            background-color: -moz-linear-gradient(left, #9ED4FF, #42A5F5);
+            /* IE 10 */
+            background-color: -ms-linear-gradient(left, #9ED4FF, #42A5F5);
+            /* Opera 11.10+ */
+            background-color: -o-linear-gradient(left, #9ED4FF, #42A5F5);
+            -webkit-transition: all .3s;
+            -o-transition: all .3s;
+            transition: all .3s;
+        }
+    }
+    
+    @{_name_space}-item {
+        padding: 10px;
+        list-style-type: none;
+        position: relative;
+        @{_name_space}-preview {
+            opacity: .5;
+            background-color: #eee;
+        }
+
+        &.completed {
+            @{_name_space}-preview {
+                opacity: 1;
+                background-color: initial;
+            }
+            @{_name_space}-progress-bar {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    }
+    @{_name_space}-name {
+        line-height: 1.5;
+    }
+
+    @{_name_space}-destroy {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+
+    @{_name_space}-queue:not(:empty) {
+        border: 1px solid #eee;
+        overflow: hidden;
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+        /*different mode*/
+        &.list {
+            @{_name_space}-item {
+                display: table;
+                width: 100%;
+            }
+            @{_name_space}-preview, @{_name_space}-content {
+                display: table-cell;
+                vertical-align: middle;
+            }
+            @{_name_space}-preview {
+                width: 20%;
+            }
+            @{_name_space}-content {
+                padding-left: 10px;
+            }
+        }
+
+        &.card, &.simple {
+            @{_name_space}-item {
+                float: left;
+                margin: 20px;
+                width: 200px;
+                height: 200px;
+                overflow: hidden;
+                border: 1px solid #f3f3f3;
+                background-color: #f3f3f3;
+                text-align: center;
+            }
+            @{_name_space}-progress {
+                position: absolute;
+                left: 0;
+                top: 50%;
+                width: 100%;
+                margin-top: -3px;
+                z-index: 100;
+            }
+            @{_name_space}-preview {
+                width: 100%;
+                height: 100%;
+                >img {
+                    max-height: 100%;
+                    max-width: 100%;
+                    margin: auto;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    top: 0;
+                }
+            }
+            @{_name_space}-content {
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                padding: 10px;
+                opacity: 0;
+                background-color: #eee;
+                -webkit-transition: all .3s;
+                -o-transition: all .3s;
+                transition: all .3s;
+                &:hover {
+                    opacity: 1;
+                    -webkit-transition: all .3s;
+                    -o-transition: all .3s;
+                    transition: all .3s;
+                }
+                @{_name_space}-name {
+                    margin: 50px 0 20px;
+                }
+                @{_name_space}-progress {
+                    margin: 20px 0;
+                }
+            }
+        }
+    }
+
+
+    @{_name_space}-preview {
+        >img {
+            max-width: 100%;
+        }
+    }
+
+}

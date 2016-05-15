@@ -5,6 +5,9 @@ import ReactDOM from 'react-dom';
 import Uploader from '../component/Uploader';
 
 export class UploaderDemo extends Component {
+    handleSuccess(data){
+        console.log(data)
+    }
     render() {
         return (
             <div className="container">
@@ -16,7 +19,7 @@ export class UploaderDemo extends Component {
                     </li>
                     <li>
                         <h3>Uploader support multiple file</h3>
-                        <Uploader  url='/upload' multiple={true}/>
+                        <Uploader  url='/upload' multiple={true} onSuccess={this.handleSuccess.bind(this)}/>
                     </li>
                     <li>
                         <h3>Uploader mode</h3>

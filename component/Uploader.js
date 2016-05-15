@@ -87,7 +87,8 @@ const Uploader = React.createClass({
         xhr({
             url, file,
             onSuccess(data) {
-                if (that.onSuccess) that.onSuccess(data)
+                let {onSuccess} = that.props
+                if (onSuccess) onSuccess(data)
             },
             onProgress(loaded, total){
                 if (total) {
@@ -102,11 +103,12 @@ const Uploader = React.createClass({
             onError(error){
                 let {queue} = that.state
                 let index = queue.indexOf(file)
+                let {onError} = that.props
                 if (index !== -1) {
                     delete queue[index]
                     that.setState({ queue })
                 }
-                if (that.onError) that.onError(error)
+                if (onError) onError(error)
                 console.error(error)
             }
         })
@@ -138,27 +140,25 @@ const Uploader = React.createClass({
                                 <div className="uploader-progress-bar" style={{'width': `${progress}%`}}></div>
                             </div>
                         : null }
-                    <div className="uploader-content">
-                        {mode === 'simple' 
-                            ? null
-                            : <div className="uploader-name">{name}</div> }
-                        {mode === 'list'
-                            ? <div className='uploader-progress'>
-                                <div className="uploader-progress-bar" style={{'width': `${progress}%`}}></div>
-                            </div>
-                            : null
-                        }
-                        {mode === 'simple' 
-                            ? null
-                            : <div className="uploader-size">
+                    {mode === 'simple' 
+                        ? null 
+                        : <div className="uploader-content">
+                            <div className="uploader-name">{name}</div>
+                            {mode === 'list'
+                                ? <div className='uploader-progress'>
+                                    <div className="uploader-progress-bar" style={{'width': `${progress}%`}}></div>
+                                </div>
+                                : null
+                            }
+                            <div className="uploader-size">
                                 <div>{formatSize(size)}</div>
-                            </div> }
-                        {showDistroy 
-                            ? <div className="uploader-destroy" onClick={() => this.handleDestroyItem(file)}>
-                                {destroyIcon}
                             </div>
-                            : null}
-                    </div>
+                            {showDistroy 
+                                ? <div className="uploader-destroy" onClick={() => this.handleDestroyItem(file)}>
+                                    {destroyIcon}
+                                </div>
+                                : null}
+                        </div> }
                 </li>
             )
         })

@@ -1,3 +1,3 @@
-## React boilerplate
+## React file upload
 
-this is a boilerplate for React project 
+image file upload and preview

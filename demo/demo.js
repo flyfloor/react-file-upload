@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import uploadCss from './upload.less';
+import uploadCss from '../css/upload.less';
 import Css from './demo.less';
 import ReactDOM from 'react-dom';
 import Uploader from '../component/Uploader';

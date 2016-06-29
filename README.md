@@ -16,6 +16,8 @@ import {Uploader} from 'react-file-upload';
 import {DropUploader} from 'react-file-upload';
 ```
 
+import style
+
 ```javascript
 import style from 'react-file-upload/css/upload.less'
 ```

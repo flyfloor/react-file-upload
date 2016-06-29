@@ -1,5 +1,5 @@
-import React from 'react'
-import xhr from './xhr'
+const React = require('react')
+const xhr = require('./xhr')
 
 const uploadMixin = {
     propTypes: {
@@ -143,4 +143,4 @@ const uploadMixin = {
     },
 }
 
-export default uploadMixin
+module.exports = uploadMixin

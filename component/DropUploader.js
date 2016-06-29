@@ -1,6 +1,6 @@
-import React from 'react'
-import uploadMixin from './uploadMixin'
-import {formatSize} from './util';
+const React = require('react')
+const uploadMixin = require('./uploadMixin')
+const {formatSize} = require('./util')
 
 const DropUploader = React.createClass({
     getDefaultProps() {
@@ -78,4 +78,4 @@ const DropUploader = React.createClass({
     }
 });
 
-export default DropUploader
+module.exports = DropUploader

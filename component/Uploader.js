@@ -1,6 +1,6 @@
-import React from 'react'
-import uploadMixin from './uploadMixin'
-import {formatSize} from './util'
+const React = require('react')
+const uploadMixin = require('./uploadMixin')
+const {formatSize} = require('./util')
 
 const Uploader = React.createClass({
     mixins: [uploadMixin],
@@ -68,4 +68,4 @@ const Uploader = React.createClass({
     }
 });
 
-export default Uploader
+module.exports = Uploader

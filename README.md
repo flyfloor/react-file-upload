@@ -2,6 +2,9 @@
 
 image file upload and preview
 
+### Demo
+http://braavos.me/react-file-upload/
+
 ### Usage
 
 #### use default uploader

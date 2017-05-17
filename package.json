@@ -19,7 +19,7 @@
   ],
   "author": "jerryshew",
   "license": "MIT",
-  "homepage": "https://github.com/jerryshew/react-file-upload",
+  "homepage": "http://braavos.me/react-file-upload",
   "dependencies": {},
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",
